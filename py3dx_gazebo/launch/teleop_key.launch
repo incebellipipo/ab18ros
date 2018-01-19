@@ -1,5 +1,5 @@
 <launch>
-  <arg name="robot_name" value="r1" />
+  <arg name="robot_name" default="r1" />
   <group ns="$(arg robot_name)">
     <node pkg="py3dx_gazebo" type="pioneer3dx_teleop_key" name="pioneer3dx_teleop_key">
     </node>
