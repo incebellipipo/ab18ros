@@ -1,0 +1,14 @@
+#!/usr/bin/env python2
+from pybot import pybot
+import rospy
+
+def main():
+    rospy.init_node("pybot_python")
+    cmd_vel_topic = rospy.get_param("~topics/cmd_vel", "cmd_vel")
+    scan_topic = rospy.get_param("~topics/scan", "front_laser/scan")
+    odom_topic = rospy.get_param("~topics/odom", "odom")
+    my_robot = pybot(cmd_vel_topic=cmd_vel_topic, odom_topic=odom_topic, scan_topic=scan_topic)
+    rospy.spin()
+
+if __name__ == "__main__":
+    main()
