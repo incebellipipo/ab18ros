@@ -1,0 +1,12 @@
+<?xml version="1.0"?>
+<launch>
+
+  <arg name="robot_name" default="kezbot"/>
+  <arg name="robot_ns" default="$(arg robot_name)/" />
+  <arg name="use_cam" default="false" />
+    
+  <group if="$(arg use_cam)">
+    <node pkg="project1" type="project1_node" name="hilmi"
+      args="$(arg use_cam)" output="screen"/>
+  </group>
+</launch>

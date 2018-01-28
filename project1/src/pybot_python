@@ -64,8 +64,8 @@ def main():
             )
 
     goal_point = Point()
-    goal_point.x = 0 
-    goal_point.y = 0 
+    goal_point.x = 4 
+    goal_point.y = 4 
     rate = rospy.Rate(10)
 
     while not rospy.is_shutdown():
@@ -77,6 +77,7 @@ def main():
         if linear is None or angular is None:
             pid.clear()
             my_robot.set_speed(0, 0)
+            break
         else:
             my_robot.set_speed(linear, angular)
         
