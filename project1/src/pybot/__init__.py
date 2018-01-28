@@ -14,11 +14,10 @@ class Pybot():
         self._laser_scan = LaserScan()
 
         self._publishers = {}
-        self._publishers["cmd_vel"] = rospy.Publisher( cmd_vel_topic, Twist, queue_size=10)
+        self._publishers["cmd_vel"] = rospy.Publisher(cmd_vel_topic, Twist, queue_size=10)
         
-        rospy.Subscriber( scan_topic, LaserScan, self.__cb_laser_scan)
-        rospy.Subscriber( odom_topic, Odometry, self.__cb_odom)
-                
+        rospy.Subscriber(scan_topic, LaserScan, self.__cb_laser_scan)
+        rospy.Subscriber(odom_topic, Odometry, self.__cb_odom)
 
     def set_speed(self, linear, angular):
         t = Twist()
