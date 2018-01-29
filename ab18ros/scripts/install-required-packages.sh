@@ -23,4 +23,5 @@ sudo apt-get install -y \
   ros-kinetic-rosserial-python \
   ros-kinetic-joy-teleop \
   ros-kinetic-rospy \
-  ros-kinetic-roscpp 
+  ros-kinetic-roscpp \
+  ros-kinetic-tf2*
