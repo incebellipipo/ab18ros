@@ -5,6 +5,7 @@
 #include <serial/serial.h>
 #include <iostream>
 #include <vector>
+#include <serial_comm/ArduinoState.h>
 
 namespace serial_comm {
 
@@ -25,11 +26,25 @@ namespace serial_comm {
       std::string read();
       bool write(std::string data);
 
+      void run();
+
     private:
       std::string       port_;
       uint32_t          baudrate_;
       bool              is_initialized_;
       serial::Serial    serial_;
+      ros::NodeHandle nh_;
+      ros::Publisher state_publisher_;
+  };
+
+  class SerialCommException: public std::exception{
+    public:
+        explicit SerialCommException(const char* message): msg_(message) {}
+        explicit SerialCommException(const std::string& message): msg_(message) {}
+        virtual ~SerialCommException() throw (){}
+        virtual const char* what() const throw (){ return msg_.c_str(); }
+    protected:
+        std::string msg_;
   };
 }
 
