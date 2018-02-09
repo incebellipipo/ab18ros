@@ -3,7 +3,7 @@
 
     <!-- Gazebo  -->
     <include file="$(find py3dx_gazebo)/launch/includes/gazebo/empty_world.launch.xml">
-      <arg name="world_name" value="$(find py3dx_gazebo)/worlds/building.world" />
+      <!--<arg name="world_name" value="$(find py3dx_gazebo)/worlds/building.world" />!-->
     </include>
 
     <include file="$(find py3dx_gazebo)/launch/includes/one_robot_minimal.launch.xml">
