@@ -16,11 +16,11 @@ namespace cppbot{
     public:
     Cppbot();
 
-    void set_speed(float speed);
+    void set_speed(float linear, float angular);
 
-    geometry_msgs::Pose2D get_pose_2d();
-    geometry_msgs::PoseStamped get_pose_stamped();
-    sensor_msgs::LaserScan get_laser_scan();
+    geometry_msgs::Pose2D get_pose_2d(){return pose2d_;}
+    geometry_msgs::PoseStamped get_pose_stamped(){return pose_stamped_;}
+    sensor_msgs::LaserScan get_laser_scan(){return laser_scan_;}
 
   
     private:
@@ -34,8 +34,18 @@ namespace cppbot{
     ros::Publisher cmd_vel_pub_;
 
     void odom_cb_(const nav_msgs::Odometry::ConstPtr& msg);
-    void laser_scan_cb_(const sensor_msgs::LaserScan::ConstPtr& msg);
+    void laser_scan_cb_(sensor_msgs::LaserScan msg);
 
+  };
+
+  struct complex_number{
+    float distance;
+    float angle;
+  };
+
+  class Helpers{
+  public:
+    static struct complex_number calculate_differance(geometry_msgs::Point point0, geometry_msgs::Point point1);
   };
 
 
