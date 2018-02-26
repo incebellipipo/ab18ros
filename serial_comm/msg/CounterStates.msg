@@ -1,3 +1,0 @@
-int32 counter1_state
-int32 counter2_state
-int32 counter3_state
